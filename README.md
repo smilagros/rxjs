@@ -1,8 +1,8 @@
 # Rxjs
-## RxJS (Reactive Extensions for JavaScript) is a library for transforming, composing, and querying streams of data. It brings the concept of reactive programming to the web. The library allows you to work with asynchronous data streams with ease. Asynchronous data streams can be described in the following way:
+RxJS (Reactive Extensions for JavaScript) is a library for transforming, composing, and querying streams of data. It brings the concept of reactive programming to the web. The library allows you to work with asynchronous data streams with ease. Asynchronous data streams can be described in the following way:
 
-	Asynchronous: Callback functions are registered to be invoked when results are available. We’re able to wait for data to become available without blocking the application.
-	Data Streams: Sequences of data made available over time. You don’t need all the information to be present in order to start using them.
+Asynchronous: Callback functions are registered to be invoked when results are available. We’re able to wait for data to become available without blocking the application.
+Data Streams: Sequences of data made available over time. You don’t need all the information to be present in order to start using them.
 
 Observables are just a representation of any set of values over any amount of time. This is the most basic building block of RxJS.
 RxJS is part of the ReactiveX project. The project’s website can be found at http://reactivex.io/
@@ -122,6 +122,7 @@ The body section of this HTML documents contains a <ul> element with ID list. Th
 The file bundle.js (which is the output of the Webpack build process) is included via <script> tag at the end of the body section.
 
 ## Add The TypeScript Code
+
 Now that the project setup is ready, the TypeScript and Webpack configuration is in place, and the HTML document has been created, we’re able to focus on the TypeScript code next.
 Insider the project folder create a new subfolder src. Insert that newly created folder create a new file index.ts and insert the following code:
 
@@ -145,7 +146,9 @@ Insider the project folder create a new subfolder src. Insert that newly created
 	}
 
 First of all we’re importing Observable from the rxjs library. By using method Observable.create we’re creating an instance of Observable and storing it in observable.
+
 As an argument we’re passing in a callback method which gives us access to an Observer object. Now we’re able to use the Observer methods next, complete and error to create notifications of the corresponding types. In this example we’re calling the next method two times to send out notifications with string values. Then the complete method is called to send out the complete notification. After having send out the complete notification we’re calling the next method once again. The expectation here is that no new notification will be raised because the Observable is already completed.
+
 The register callback methods which are invoked if a notification of a certain type is raised are registered by calling the subscribe method of the Observable. We’re able to register up to three callback methods for notification types next, error and complete.
 Inside the callback methods we’re making use of a custom helper method logItem. This methods is updating the output by adding new list items to the list element.
 
